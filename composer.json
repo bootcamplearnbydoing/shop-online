@@ -1,0 +1,14 @@
+{
+    "name": "pet/store",
+    "autoload": {
+        "psr-4": {
+            "Pet\\Store\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Learn by doing team"
+        }
+    ],
+    "require": {}
+}
