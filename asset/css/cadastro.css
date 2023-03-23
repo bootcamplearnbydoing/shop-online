@@ -1,18 +1,29 @@
 /*CABEÇALHO*/
 
-.cadastro-cabecalho {
+.register-header {
     align-items: center;
     padding-top: 1rem;
 }
 
-.cadastro-cabecalho__logo {
-    width: 3rem;
+.register-header__brand {
+    width: 5rem;
     margin-bottom: 1rem;
 }
 
-.cadastro-cabecalho__titulo {
+.register-header__title {
     font-family: var(--fonte-familia-logo);
     font-size: var(--fonte-tamanho-logo);
     font-weight: (--fonte-peso-700);
     margin-bottom: 1rem;
+}
+
+@media(min-width: 800px) {
+    .register-header__brand{
+        width: 5.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .register-header__title {
+        margin-bottom: 2rem;
+    }
 }
