@@ -15,70 +15,68 @@
 </head>
 
 <body>
-    <header class="container flex flex--column register-header">
-        <img class="register-header__brand" src="./asset/img/logoshop.jpg" alt="Logo do Shop">
-        <h1 class="register-header__title">ShopOnline</h1>
+    <header class="container flex flex--column cadastro-cabecalho">
+        <img class="cadastro-cabecalho__logo" src="./asset/img/logoshop.jpg" alt="Logo do Shop">
+        <h1 class="cadastro-cabecalho__titulo">ShopOnline</h1>
     </header>
-    <main class="container flex flex--column cards">
-        <section class="card">
-            <h2 class="card__title">Complete o seu cadastro!</h2>
-            <form action="" class="form">
-                <fieldset>
-                    <legend class="form__title">Informações Básicas</legend>
-                    <div class="input-container flex flex--column">
-                        <input name="name" class="input" type="text" id="name" placeholder="Nome" required>
-                        <label class="input-label" for="name">Nome</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+    <main class="container cartoes">
+        <section class="cartao">
+            <h2 class="cartao__titulo">Complete o seu cadastro!</h2>
+            <form action="" class="formulario">
+            <fieldset>
+                <legend class="formulario__titulo">Informações Básicas</legend>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Nome</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="email" class="input" type="email" id="email" placeholder="Email" required>
-                        <label class="input-label" for="email">Email</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Email</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="password" class="input" type="password" id="password" placeholder="Senha"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !?@#$%^&*_=+-]).{6,12}$"
-                        title="A senha deve conter entre 6 a 12 caracteres, pelo menos uma letra maiúscula, um numero e não deve conter símbolos." required>
-                        <label class="input-label" for="password">Senha</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Senha</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <legend class="form__title">Informações Pessoais</legend>
-                    <div class="input-container flex flex--column">
-                        <input name="birth" class="input" type="date" id="birth" placeholder="Data de nascimento" required>
-                        <label class="input-label" for="birth">Data de nascimento</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+            </fieldset>
+            <fieldset>
+                <legend class="formulario__titulo">Informações Pessoais</legend>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Data de Nascimento</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="cpf" class="input" type="text" id="cpf" placeholder="CPF" required>
-                        <label class="input-label" for="cpf">CPF</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">CPF</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <legend class="form__title">Endereço</legend>
-                    <div class="input-container flex flex--column">
-                        <input name="cep" class="input" type="text" id="cep" placeholder="CEP" pattern="[\d]{5}-?[\d]{3}" required>
-                        <label class="input-label" for="cep">CEP</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+            </fieldset>
+            <fieldset>
+                <legend class="formulario__titulo">Endereço</legend>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">CEP</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="logradouro" class="input" type="text" id="logradouro" placeholder="Logradouro" required>
-                        <label class="input-label" for="logradouro">Logradouro</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Logradouro</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="cidade" class="input" type="text" id="cidade" placeholder="Cidade" required>
-                        <label class="input-label" for="cidade">Cidade</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Cidade</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                    <div class="input-container flex flex--column">
-                        <input name="estado" class="input" type="text" id="estado" placeholder="Estado" required>
-                        <label class="input-label" for="estado">Estado</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
+                    <div>
+                        <input class="input" type="text">
+                        <label class="input-label" for="">Estado</label>
+                        <span class="input-mensagem-erro">Este campo não está válido!</span>
                     </div>
-                </fieldset>
-                <button class="button">Cadastrar</button>
+            </fieldset>
             </form>
         </section>
     </main>
