@@ -1,0 +1,16 @@
+
+.button{
+    display: block;
+    background-color: var(--cor-bc-botao);
+    border-radius: 7px;
+    width: 100%;
+    margin-top: 1rem;
+    max-width: 10rem;
+    padding: 1.125rem;
+    box-sizing: border-box;
+    color: var(--cor-contraste-claro);
+    font-size: var(--fonte-tamanho-botao);
+    font-weight: var(--fonte-peso-700);
+    align-self: center;
+    text-align: center;
+}
