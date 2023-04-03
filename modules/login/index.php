@@ -1,3 +1,3 @@
 <?php
 
-view('pending_users');
+view('login');

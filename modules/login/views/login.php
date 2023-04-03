@@ -1,4 +1,7 @@
-<form class="login-form" method="post" action=""> <!-- redirecionar para controlador que verifica login-->
+<main>
+<div class=""></div>
+<div class="form">
+    <form class="login-form" method="post" action=""> <!-- redirecionar para controlador que verifica login-->
         <div class="login-itens">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email <abbr
@@ -19,3 +22,5 @@
             </div>
         </div>
     </form> 
+</div>
+</main>
