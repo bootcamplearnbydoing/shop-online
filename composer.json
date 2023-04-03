@@ -2,7 +2,8 @@
     "name": "pet/store",
     "autoload": {
         "psr-4": {
-            "Pet\\Store\\": "src/"
+            "Pet\\Store\\": "src/",
+            "Pet\\Store\\Register\\": "modules/register"
         }
     },
     "authors": [

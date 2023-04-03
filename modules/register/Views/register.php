@@ -1,21 +1,21 @@
 <main class="container cartoes">
     <section class="cartao">
         <h2 class="cartao__titulo">Complete o seu cadastro!</h2>
-        <form action="" class="formulario">
+        <form action="" method="POST" class="formulario">
         <fieldset>
             <legend class="formulario__titulo">Informações Básicas</legend>
                 <div>
-                    <input class="input" type="text">
+                    <input name="name" class="input" type="text">
                     <label class="input-label" for="">Nome</label>
                     <span class="input-mensagem-erro">Este campo não está válido!</span>
                 </div>
                 <div>
-                    <input class="input" type="text">
+                    <input name="email" class="input" type="text">
                     <label class="input-label" for="">Email</label>
                     <span class="input-mensagem-erro">Este campo não está válido!</span>
                 </div>
                 <div>
-                    <input class="input" type="text">
+                    <input name="password" class="input" type="text">
                     <label class="input-label" for="">Senha</label>
                     <span class="input-mensagem-erro">Este campo não está válido!</span>
                 </div>
@@ -54,6 +54,9 @@
                     <input class="input" type="text">
                     <label class="input-label" for="">Estado</label>
                     <span class="input-mensagem-erro">Este campo não está válido!</span>
+                </div>
+                <div>
+                    <button>send</button>
                 </div>
         </fieldset>
         </form>
