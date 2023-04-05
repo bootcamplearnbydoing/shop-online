@@ -10,13 +10,17 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="public/css/base/base.css">
-    <link rel="stylesheet" href="public/css/cadastro.css">
-    <link rel="stylesheet" href="public/css/componentes/cartoes.css">
+    <link rel="stylesheet" href="public/css/register.css">
+    <link rel="stylesheet" href="public/css/components/cards.css">
+    <link rel="stylesheet" href="public/css/components/buttons.css">
+    <link rel="stylesheet" href="public/css/components/inputs.css">
 </head>
 
 <body>
 
-    <header class="container flex flex--column cadastro-cabecalho">
-        <img class="cadastro-cabecalho__logo" src="public/img/logoshop.jpg" alt="Logo do Shop">
-        <h1 class="cadastro-cabecalho__titulo">ShopOnline</h1>
+    <header class="container flex flex--column register-header">
+        <div>
+            <img class="register-header__brand" src="public/img/logoshop.jpg" alt="Logo do Shop">
+            <h1 class="register-header__title">ShopOnline</h1>
+        </div>
     </header>
