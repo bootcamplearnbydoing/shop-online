@@ -3,7 +3,8 @@
     "autoload": {
         "psr-4": {
             "Pet\\Store\\": "src/",
-            "Pet\\Store\\Register\\": "modules/register"
+            "Pet\\Store\\Register\\": "modules/register",
+            "Pet\\Store\\Login\\": "modules/login"
         }
     },
     "authors": [

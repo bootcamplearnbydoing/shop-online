@@ -11,6 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="public/css/base/base.css">
     <link rel="stylesheet" href="public/css/cadastro.css">
+    <link rel="stylesheet" href="public/css/login.css">
     <link rel="stylesheet" href="public/css/componentes/cartoes.css">
 </head>
 
