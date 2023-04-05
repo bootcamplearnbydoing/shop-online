@@ -31,6 +31,5 @@ class RegisterController
         );
 
         $regiserService = new RegisterService($registerModel);
-        $regiserService->mostrarMeuNome();
     }
 }
