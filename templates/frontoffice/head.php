@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="public/css/components/cards.css">
     <link rel="stylesheet" href="public/css/components/buttons.css">
     <link rel="stylesheet" href="public/css/components/inputs.css">
+    <link rel="stylesheet" href="public/css/login.css">
 </head>
 
 <body>
