@@ -5,56 +5,51 @@
             <fieldset>
                 <legend class="form__title">Informações Básicas</legend>
                     <div class="input-container">
-                        <input name="name" class="input" type="text">
-                        <label class="input-label" for="name">Nome</label>
+                        <input name="first_name" id="firstName" class="input" type="text">
+                        <label class="input-label" for="firstName">Nome</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="surname" class="input" type="text">
-                        <label class="input-label" for="surname">Sobrenome</label>
+                        <input name="last_name" id="lastName" class="input" type="text">
+                        <label class="input-label" for="lastName">Sobrenome</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="dataNascimento" class="input" type="text">
-                        <label class="input-label" for="">Data de Nascimento</label>
+                        <input name="birth_date" id="birthDate" class="input" type="text">
+                        <label class="input-label" for="birthDate">Data de Nascimento</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="email" class="input" type="email">
-                        <label class="input-label" for="">Email</label>
+                        <input name="email" id="email" class="input" type="email">
+                        <label class="input-label" for="email">Email</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="pass" class="input" type="password">
+                        <input name="password" id="pass" class="input" type="password">
                         <label class="input-label" for="pass">Senha</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="confirmPass" class="input" type="password">
-                        <label class="input-label" for="ConfirmPass">Confirmar senha</label>
+                        <input name="confirm_password" id="confirmPassword" class="input" type="password">
+                        <label class="input-label" for="confirmPassword">Confirmar senha</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
             </fieldset>
             <fieldset>
                 <legend class="form__title">Endereço</legend>
                     <div class="input-container">
-                        <input class="input" type="text">
-                        <label class="input-label" for="">CEP</label>
+                        <input name="address" class="input" type="text">
+                        <label class="input-label" for="">Morada</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input class="input" type="text">
-                        <label class="input-label" for="">Logradouro</label>
-                        <span class="input-message-error">Este campo não está válido!</span>
-                    </div>
-                    <div class="input-container">
-                        <input class="input" type="text">
+                        <input name="city" class="input" type="text">
                         <label class="input-label" for="">Cidade</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input class="input" type="text">
-                        <label class="input-label" for="">Estado</label>
+                        <input name="postal_code" class="input" type="text">
+                        <label class="input-label" for="">Código Postal</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
             </fieldset>
