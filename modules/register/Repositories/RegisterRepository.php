@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pet\Store\Register\Services;
+namespace Pet\Store\Register\Repositories;
 
 use Pet\Store\Register\Repositories\Repository;
 

@@ -1,34 +1,14 @@
+
+/*
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    font-size: 0.9rem;
+    margin-top: 2rem;
 }
 
-.login-itens {
-    display: flex;
-    flex-direction: column;
-    width: 30rem;
-    border: 1px solid black;
-    margin: 5rem;
-    padding: 5rem;
-}
 
-.login-links {
-    font-size: 0.7rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
+.login-area {
+    float: right;
+    width: 26rem;
+    margin-right: 10rem;
+  }
 }
-
-.login-button { 
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.login-button button {
-width: 5rem;
-} 
+*/
