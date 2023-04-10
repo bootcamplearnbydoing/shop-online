@@ -7,10 +7,10 @@ namespace Pet\Store\Register\Models;
 class RegisterModel
 {
     public function __construct(
-        public readonly string $firstName,
-        public readonly string $lastName,
-        public readonly string $email,
-        public readonly string $password,
+        private readonly string $firstName,
+        public  readonly string $lastName,
+        private readonly string $email,
+        private readonly string $password,
         public readonly ?string $passwordConfirm,
         public readonly ?string $birthDate,
         public readonly ?string $address,
@@ -19,5 +19,20 @@ class RegisterModel
         public readonly ?string $billingAddress,
         public readonly ?string $newsletter
     ) {}
+
+    public function getFirstName()
+    {
+        return trim($this->firstName);
+    }
+
+    public function getEmail()
+    {
+        return trim($this->email);
+    }
+
+    public function getPassword()
+    {
+        return trim($this->password);
+    }
 }
 

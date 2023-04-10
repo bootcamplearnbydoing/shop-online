@@ -55,7 +55,7 @@
             </fieldset>
             <fieldset>
                 <div>
-                    <a href="#">Já tem uma conta? Fazer login</a>
+                    <a href="?route=login">Já tem uma conta? Fazer login</a>
                 </div>
             </fieldset>
             <div>

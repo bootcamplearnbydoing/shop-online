@@ -4,17 +4,11 @@ declare(strict_types=1);
 
 namespace Pet\Store\Register\Repositories;
 
-use Pet\Store\Register\Repositories\Repository;
+use Pet\Store\Register\Models\RegisterModel;
 
-class RegisterRepository implements Repository
+interface RegisterRepository
 {
-    public function findAll(): void
-    {
-        
-    }
-
-    public function findById(int $id): void
-    {
-
-    }
+    public function findAll(): array;
+    
+    public function findByEmail(string $email): ?RegisterModel;
 }

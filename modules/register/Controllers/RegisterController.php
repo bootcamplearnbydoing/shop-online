@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Pet\Store\Register\Controllers;
 
 use Pet\Store\Register\Models\RegisterModel;
+use Pet\Store\Register\Repositories\RegisterInMemoryRepository;
+use Pet\Store\Register\Repositories\RegisterPgSqlRepository;
 use Pet\Store\Register\Services\RegisterService;
 
 class RegisterController
@@ -16,7 +18,7 @@ class RegisterController
 
     public function postRegister()
     {
-        $registerModel = new RegisterModel(
+        $userFormData = new RegisterModel(
             filter_input(INPUT_POST, 'first_name'),
             filter_input(INPUT_POST, 'last_name'),
             filter_input(INPUT_POST, 'email'),
@@ -30,6 +32,24 @@ class RegisterController
             filter_input(INPUT_POST, 'newsletter')
         );
 
-        $regiserService = new RegisterService($registerModel);
+        $registerRepository = new RegisterInMemoryRepository();
+        $regiserService = new RegisterService($registerRepository);
+
+        $emailUser = $userFormData->getEmail();
+        $user = $regiserService->findByEmail($emailUser);
+
+        if (empty($user)) {
+            echo 'user not found';
+            return false;
+        }
+
+        if ($user->getPassword() !== $userFormData->getPassword()) {
+            echo 'password doesn\'t match';
+            return false;
+        }
+        
+        $regiserService->validate($userFormData);
+
+        var_dump($user);
     }
 }
