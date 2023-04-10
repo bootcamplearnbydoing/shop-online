@@ -5,8 +5,8 @@ namespace Pet\Store\Login\Models;
 class LoginModel 
 {
     public function __construct(
-        readonly string $email,
-        readonly string $password
+        public readonly string $email,
+        public readonly string $password
     ) {} 
 
 } 
