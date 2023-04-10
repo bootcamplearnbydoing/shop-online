@@ -29,7 +29,7 @@
                     </div>
                     <fieldset>
                         <div>
-                            <a href=""> Não é cliente? Cadastre-se aqui!</a>
+                            <a href="?route=register"> Não é cliente? Cadastre-se aqui!</a>
                         </div>
                     </fieldset>
                 </fieldset>
