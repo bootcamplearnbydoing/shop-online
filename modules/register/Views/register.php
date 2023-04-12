@@ -1,6 +1,6 @@
 <main class="container cards">
     <section class="card">
-        <h2 class="card__title">Complete o seu cadastro!</h2>
+        <h2 class="card__title">Complete o seu cadastro <?php var_dump($errors); ?>!</h2>
         <form action="" method="POST" class="form">
             <fieldset>
                 <legend class="form__title">Informações Básicas</legend>
@@ -30,7 +30,7 @@
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="confirm_password" id="confirmPassword" class="input" type="password">
+                        <input name="password_confirm" id="confirmPassword" class="input" type="password">
                         <label class="input-label" for="confirmPassword">Confirmar senha</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
