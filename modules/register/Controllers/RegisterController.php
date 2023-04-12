@@ -7,14 +7,14 @@ namespace Pet\Store\Register\Controllers;
 use Exception;
 use Pet\Store\Register\Models\RegisterModel;
 use Pet\Store\Register\Repositories\RegisterInMemoryRepository;
-use Pet\Store\Register\Repositories\RegisterPgSqlRepository;
 use Pet\Store\Register\Services\RegisterService;
 
 class RegisterController
 {
     public function viewRegister()
     {
-        view('register');
+        $data = ['errors' => json_decode(get_flash_message() ?? '')];
+        view('register', $data);
     }
 
     public function postRegister()
@@ -41,20 +41,10 @@ class RegisterController
             if (!empty($errors)) {
                 throw new Exception(json_encode($errors), 400);
             }
-    
-            $emailUser = $userFormData->getEmail();
-            $user = $regiserService->findByEmail($emailUser);
-    
-            if (!empty($user)) {
-                $errors[] = [
-                    'field' => 'user',
-                    'message' => 'User already exist'
-                ];
-                throw new Exception(json_encode($errors), 400);
-            }
 
         } catch (Exception $e) {
-            echo $e->getMessage();
+            set_flash_message($e->getMessage());
+            url_redirect(['route' => 'register']);
         }
     }
 }

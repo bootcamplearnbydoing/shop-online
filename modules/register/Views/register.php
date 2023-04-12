@@ -1,6 +1,6 @@
 <main class="container cards">
     <section class="card">
-        <h2 class="card__title">Complete o seu cadastro!</h2>
+        <h2 class="card__title">Complete o seu cadastro <?php var_dump($errors); ?>!</h2>
         <form action="" method="POST" class="form">
             <fieldset>
                 <legend class="form__title">Informações Básicas</legend>

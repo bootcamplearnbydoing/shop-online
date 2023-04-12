@@ -40,7 +40,7 @@ class RegisterService
         if (!filter_var($registerModel->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $errors[] = [
                 'field' => 'email',
-                'message' => 'Must be valid'
+                'message' => 'Email must be valid'
             ];
         }
 
@@ -58,6 +58,7 @@ class RegisterService
             ];
         }
 
+        // this pattern ensure strong password
         $pattern = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
         
         if (!preg_match($pattern, $registerModel->getPassword())) {
@@ -71,6 +72,16 @@ class RegisterService
             $errors[] = [
                 'field' => 'password_confirm',
                 'message' => 'Passwords don\'t match'
+            ];
+        }
+    
+        $emailUser = $registerModel->getEmail();
+        $user = $this->findByEmail($emailUser);
+
+        if (!empty($user)) {
+            $errors[] = [
+                'field' => 'user',
+                'message' => 'User already exist'
             ];
         }
 
