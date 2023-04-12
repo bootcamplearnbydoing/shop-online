@@ -20,19 +20,29 @@ class RegisterModel
         public readonly ?string $newsletter
     ) {}
 
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return trim($this->firstName);
     }
 
-    public function getEmail()
+    public function getLastName(): string
+    {
+        return trim($this->lastName);
+    }
+
+    public function getEmail(): string
     {
         return trim($this->email);
     }
 
-    public function getPassword()
+    public function getPassword(): string
     {
         return trim($this->password);
+    }
+
+    public function getPasswordConfirm(): string
+    {
+        return trim($this->passwordConfirm);
     }
 }
 

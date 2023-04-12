@@ -30,7 +30,7 @@
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="confirm_password" id="confirmPassword" class="input" type="password">
+                        <input name="password_confirm" id="confirmPassword" class="input" type="password">
                         <label class="input-label" for="confirmPassword">Confirmar senha</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
