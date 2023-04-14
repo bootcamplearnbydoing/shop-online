@@ -63,9 +63,9 @@
     color: var(--cor-aviso);
 }
 
-.input-message-error {
+/*.input-message-error {
     display: none;
-}
+}*/
 
 .input-container--invalid .input-message-error {
     color: var(--cor-aviso);

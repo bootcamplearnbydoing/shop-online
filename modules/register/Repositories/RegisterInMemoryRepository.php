@@ -1,5 +1,6 @@
 <?php
 
+// Declaração do namespace e uso de classes e interfaces
 declare(strict_types=1);
 
 namespace Pet\Store\Register\Repositories;
@@ -7,8 +8,10 @@ namespace Pet\Store\Register\Repositories;
 use Pet\Store\Register\Models\RegisterModel;
 use Pet\Store\Register\Repositories\RegisterRepository;
 
+// Classe que implementa a interface RegisterRepository e representa um repositório de registros em memória
 class RegisterInMemoryRepository implements RegisterRepository
 {
+    // Constante que representa os usuários armazenados em memória
     const USERS = [
         [
             'id' => 1,
@@ -54,17 +57,23 @@ class RegisterInMemoryRepository implements RegisterRepository
         ],
     ];
 
+    // Método que retorna todos os registros armazenados no repositório
     public function findAll(): array
     {
         return self::USERS;
     }
 
+    // Método que busca um registro pelo email
     public function findByEmail(string $email): ?RegisterModel
     {
+        // Inicializa a variável $user
         $user = null;
 
+        // Percorre o array de usuários
         foreach (self::USERS as $userItem) {
+            // Verifica se o email do usuário atual é igual ao email procurado
             if ($userItem['email'] === $email) {
+                // Cria um novo modelo de registro com os dados do usuário encontrado
                 $user = new RegisterModel(
                     $userItem['first_name'],
                     $userItem['last_name'],
@@ -81,6 +90,7 @@ class RegisterInMemoryRepository implements RegisterRepository
             }
         }
 
+        // Retorna o usuário encontrado, ou nulo se não houver um usuário com o email procurado
         return $user;
     }
 }
