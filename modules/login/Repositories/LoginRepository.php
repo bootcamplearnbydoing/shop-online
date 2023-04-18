@@ -4,19 +4,13 @@ declare(strict_types=1);
 
 namespace Pet\Store\Login\Repositories;
 
-use Pet\Store\Login\Repositories\Repository;
+use Pet\Store\Login\Models\LoginModel;
 
-class LoginRepository implements Repository 
+interface LoginRepository
 {
-    public function findAll():void 
-    {
-        
-    }
+    public function findAll(): array;
 
-    public function findById(int $id): void 
-    {
-        
-    }
+    public function findByEmail(string $email): ?LoginModel;
 
 }
 
