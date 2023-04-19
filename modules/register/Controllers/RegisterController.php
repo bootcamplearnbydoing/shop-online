@@ -9,6 +9,7 @@ namespace Pet\Store\Register\Controllers;
 use Exception;
 use Pet\Store\Register\Models\RegisterModel;
 use Pet\Store\Register\Repositories\RegisterInMemoryRepository;
+use Pet\Store\Register\Repositories\RegisterPgSqlRepository;
 use Pet\Store\Register\Services\RegisterService;
 
 // Importa as classes que serão utilizadas dentro desta classe
@@ -46,7 +47,8 @@ class RegisterController
             );
 
             // Cria uma instância do repositório RegisterInMemoryRepository, que armazena temporariamente os dados do formulário
-            $registerRepository = new RegisterInMemoryRepository();
+            //$registerRepository = new RegisterInMemoryRepository();
+            $registerRepository = new RegisterPgSqlRepository($userFormData);
             // Cria uma instância do serviço RegisterService, que contém as regras de negócio do registro
             $regiserService = new RegisterService($registerRepository);
             // Valida os dados submetidos pelo formulário, e retorna os erros encontrados

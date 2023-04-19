@@ -7,41 +7,39 @@ use Pet\Store\Login\Models\LoginModel;
 use Pet\Store\Login\Repositories\LoginInMemoryRepository;
 use Pet\Store\Login\Services\LoginService;
 
-class LoginController 
+class LoginController
 {
     public function viewLogin()
     {
-      $data = [
-        'errors' => form_errors()
-    ];
+        $data = [
+            'errors' => form_errors()
+        ];
 
-      view("login", $data);
+        view("login", $data);
     }
-    
+
     public function postLogin()
     {
-    try {
-        $userFormData = new LoginModel (
-            filter_input(INPUT_POST, "email"),
-            filter_input(INPUT_POST, "password")
-        );
+        try {
+            $userFormData = new LoginModel(
+                filter_input(INPUT_POST, "email"),
+                filter_input(INPUT_POST, "password")
+            );
 
-        $loginRepository = new LoginInMemoryRepository();
+            $loginRepository = new LoginInMemoryRepository();
 
-        $loginService = new LoginService($loginRepository);
+            $loginService = new LoginService($loginRepository);
 
-        $errors = $loginService->validate($userFormData);
+            $errors = $loginService->validate($userFormData);
 
-        set_session("form_data", $userFormData);
+            set_session("form_data", $userFormData);
 
-        if(!empty($errors)) {   
-            throw new Exception(json_encode($errors),400);
+            if (!empty($errors)) {
+                throw new Exception(json_encode($errors), 400);
+            }
+        } catch (Exception $e) {
+            set_session("form_errors", $e->getMessage());
+            url_redirect(['route' => 'login']);
         }
-    } catch (Exception $e) {
-        set_session("form_errors", $e->getMessage());
-        url_redirect(['route' => 'login']);
-    
-    }
     }
 }
-

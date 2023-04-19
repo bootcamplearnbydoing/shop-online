@@ -6,7 +6,7 @@
             <?php if(isset($errors)): ?>
                 <ul>
                     <?php foreach($errors as $error): ?>
-                    <li><?=$error["message"]?></li>
+                        <li><?=$error["message"]?></li>
                     <?php endforeach; ?>
                 </ul>
                 <?php endif; ?>
@@ -16,16 +16,16 @@
                     <div class="input-container">
                         <input name="email" id="email-login" class="input" type="email" required>
                         <label class="input-label" for="email">Email</label>
-                        <?=$error = form_error($errors, "email"); ?>
+                        <?php $error = form_error($errors, "email"); ?>
                         <?php if(isset($error)): ?>
                         <span class="input-message-error">
-                        <?=$error['message']; ?></span>
+                        <?=$error['message'];?></span>
                         <?php endif; ?>
                     </div>
                     <div class="input-container">
                         <input name="password" id="pass-login" class="input" type="password" required>
                         <label class="input-label" for="password">Senha</label>
-                        <?=$error = form_error($errors, "password");?>
+                        <?php $error = form_error($errors, "password");?>
                         <?php if(isset($error)): ?>
                         <span class="input-message-error">
                         <?=$error['message']; ?></span>
