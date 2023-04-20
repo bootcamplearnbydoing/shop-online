@@ -10,53 +10,48 @@ use Pet\Store\Login\Repositories\LoginRepository;
 class LoginService
 {
     public function __construct(private LoginRepository $loginRepository)
-    {}
+    {
+    }
 
     public function validate(LoginModel $loginModel): array
     {
-      $errors = [];
+        $errors = [];
 
-      if(empty($loginModel->getEmail())) {
-        $errors[] = [
-            "field" => "email",
-            "message" => "Email adress is required"
-        ];
-    }
+        if (empty($loginModel->getEmail())) {
+            $errors[] = [
+                "field" => "email",
+                "message" => "Email adress is required"
+            ];
+        }
 
-    if(empty($loginModel->getPassword())) {
-      $errors[] = [
-        "field" => "password",
-        "message" => "Password is required"
-      ];
-    }
-    
-    if(!empty($loginModel->getEmail()))
-    {
+        if (empty($loginModel->getPassword())) {
+            $errors[] = [
+                "field" => "password",
+                "message" => "Password is required"
+            ];
+        }
+
         $emailUser = $loginModel->getEmail();
         $user = $this->findByEmail($emailUser);
 
-        if($emailUser != $user) {
+        if (empty($user)) {
             $errors[] = [
                 "field" => "email",
-                "message" => 'Email adress is not registred'
+                "message" => 'Email address is not registered'
             ];
-        } else {
-        
-        $passwordUser = $loginModel->getPassword();
-        $password = $user["password"];
-    
-        if($passwordUser != $password) {
-        $errors[] = [
-            "field" => "password",
-            "message" => 'Password doesn\'t match'
-        ];
         }
-    }
-    }
 
-    return $errors;
-}
-public function findByEmail(string $email)
+        if ($user && $user->getPassword() != $loginModel->getPassword())
+        {
+            $errors[] = [
+                "field" => "password",
+                "message" => 'Password doesn\'t match'
+            ];
+        }
+
+        return $errors;
+    }
+    public function findByEmail(string $email): LoginModel
     {
         return $this->loginRepository->findByEmail($email);
     }

@@ -5,8 +5,10 @@ declare(strict_types=1);
 // Define que o código utilizará estritamente o modo de tipos definidos, garantindo assim maior segurança na tipagem.
 namespace Pet\Store\Register\Models;
 
+use Pet\Store\Shared\Models\Model;
+
 // Define o namespace da classe
-class RegisterModel
+class RegisterModel extends Model
 {
     // Método construtor da classe, responsável por receber e atribuir os valores às propriedades da classe
     public function __construct(
@@ -20,8 +22,10 @@ class RegisterModel
         public readonly ?string $city,
         public readonly ?string $postalCode,
         public readonly ?string $billingAddress,
-        public readonly ?string $newsletter
-    ) {}
+        public readonly ?bool $newsletter
+    ) {
+        parent::__construct();
+    }
 
     // Método responsável por retornar o valor da propriedade $firstName, removendo possíveis espaços em branco
     public function getFirstName(): string

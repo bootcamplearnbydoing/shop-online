@@ -5,10 +5,10 @@ create table users (
   last_name text not null,
   email text not null,
   "password" text not null,
-  birth_date date not null,
+  birth_date date null,
+  newsletter int2 null,
   created_at timestamp not null default now(),
   updated_at timestamp not null default now(),
-  newsletter int2 not null,
   constraint users_role_id_fk
   	foreign key (role_id)
     	references roles(id)
