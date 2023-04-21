@@ -5,7 +5,7 @@ namespace Pet\Store\Login\Controllers;
 use Exception;
 use Pet\Store\Login\Models\LoginModel;
 use Pet\Store\Login\Repositories\LoginInMemoryRepository;
-use Pet\Store\Login\Repositories\LoginPgSqlRepostory;
+use Pet\Store\Login\Repositories\LoginPgSqlRepository;
 use Pet\Store\Login\Services\LoginService;
 
 class LoginController
@@ -22,19 +22,19 @@ class LoginController
     public function postLogin()
     {
         try {
-            $userFormData = new LoginModel(
+            $loginModel = new LoginModel(
                 filter_input(INPUT_POST, "email"),
                 filter_input(INPUT_POST, "password")
             );
 
             //$loginRepository = new LoginInMemoryRepository();
-            $loginRepository = new LoginPgSqlRepostory($userFormData);
+            $loginRepository = new LoginPgSqlRepository($loginModel);
 
             $loginService = new LoginService($loginRepository);
 
-            $errors = $loginService->validate($userFormData);
+            $errors = $loginService->validate();
 
-            set_session("form_data", $userFormData);
+            set_session("form_data", $loginModel);
 
             if (!empty($errors)) {
                 throw new Exception(json_encode($errors), 400);
