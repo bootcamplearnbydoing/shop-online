@@ -27,11 +27,13 @@
 
 .input::placeholder {
     visibility: hidden;
-    color: #00000000;
+    color: var(--cor-contraste-claro);
 }
 
 .input:focus {
     outline: none;
+    border-bottom: 2px solid var(--cor-caret);
+    caret-color: var(--cor-caret);
 }
 
 .input-label {
@@ -74,6 +76,7 @@
     padding-left: 0.5rem;
 }
 
+/*
 .textarea {
     box-sizing: border-box;
     border: 1px solid var(--cor-secundaria);
@@ -133,4 +136,4 @@
     color: var(--cor-aviso);
     margin-top: 0.5rem;
     padding-left: 0.5rem;
-}
+}*/

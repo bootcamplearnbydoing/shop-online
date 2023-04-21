@@ -12,7 +12,7 @@
             <fieldset>
                 <legend class="form__title">Informações Básicas</legend>
                     <div class="input-container">
-                        <input name="first_name" id="firstName" class="input" type="text">
+                        <input name="first_name" id="firstName" class="input" type="text" placeholder="Nome" required>
                         <label class="input-label" for="firstName">Nome</label>
                         <?php $error = form_error($errors, 'first_name'); ?>
                         <?php if (isset($error)) : ?>
@@ -20,7 +20,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="input-container">
-                        <input name="last_name" id="lastName" class="input" type="text">
+                        <input name="last_name" id="lastName" class="input" type="text" placeholder="Sobrenome" required>
                         <label class="input-label" for="lastName">Sobrenome</label>
                         <?php $error = form_error($errors, 'last_name'); ?>
                         <?php if (isset($error)) : ?>
@@ -28,12 +28,12 @@
                         <?php endif; ?>
                     </div>
                     <div class="input-container">
-                        <input name="birth_date" id="birthDate" class="input" type="text">
+                        <input name="birth_date" id="birthDate" class="input" type="text" placeholder="Data de Nascimento" required>
                         <label class="input-label" for="birthDate">Data de Nascimento</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="email" id="email" class="input" type="email">
+                        <input name="email" id="email" class="input" type="email" placeholder="Email" required>
                         <label class="input-label" for="email">Email</label>
                         <?php $error = form_error($errors, 'email'); ?>
                         <?php if (isset($error)) : ?>
@@ -41,7 +41,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="input-container">
-                        <input name="password" id="pass" class="input" type="password">
+                        <input name="password" id="pass" class="input" type="password" placeholder="Senha" required>
                         <label class="input-label" for="pass">Senha</label>
                         <?php $error = form_error($errors, 'password'); ?>
                         <?php if (isset($error)) : ?>
@@ -58,19 +58,19 @@
                     </div>
             </fieldset>
             <fieldset>
-                <legend class="form__title">Endereço</legend>
+                <legend class="form__title">Morada</legend>
                     <div class="input-container">
-                        <input name="address" class="input" type="text">
+                        <input name="address" class="input" type="text" placeholder="Morada" required>
                         <label class="input-label" for="">Morada</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="city" class="input" type="text">
+                        <input name="city" class="input" type="text" placeholder="Cidade" required>
                         <label class="input-label" for="">Cidade</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
                     <div class="input-container">
-                        <input name="postal_code" class="input" type="text">
+                        <input name="postal_code" class="input" type="text" placeholder="" required>
                         <label class="input-label" for="">Código Postal</label>
                         <span class="input-message-error">Este campo não está válido!</span>
                     </div>
