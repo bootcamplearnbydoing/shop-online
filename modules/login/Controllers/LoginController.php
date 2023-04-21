@@ -5,6 +5,7 @@ namespace Pet\Store\Login\Controllers;
 use Exception;
 use Pet\Store\Login\Models\LoginModel;
 use Pet\Store\Login\Repositories\LoginInMemoryRepository;
+use Pet\Store\Login\Repositories\LoginPgSqlRepostory;
 use Pet\Store\Login\Services\LoginService;
 
 class LoginController
@@ -26,7 +27,8 @@ class LoginController
                 filter_input(INPUT_POST, "password")
             );
 
-            $loginRepository = new LoginInMemoryRepository();
+            //$loginRepository = new LoginInMemoryRepository();
+            $loginRepository = new LoginPgSqlRepostory($userFormData);
 
             $loginService = new LoginService($loginRepository);
 
