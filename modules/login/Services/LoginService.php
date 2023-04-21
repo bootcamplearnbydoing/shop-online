@@ -9,30 +9,29 @@ use Pet\Store\Login\Repositories\LoginRepository;
 
 class LoginService
 {
-    public function __construct(private LoginRepository $loginRepository)
+    public function __construct(private readonly LoginRepository $loginRepository)
     {
     }
 
-    public function validate(LoginModel $loginModel): array
+    public function validate(): array
     {
         $errors = [];
 
-        if (empty($loginModel->getEmail())) {
+        if (empty($this->loginRepository->getModel()->getEmail())) {
             $errors[] = [
                 "field" => "email",
                 "message" => "Email adress is required"
             ];
         }
 
-        if (empty($loginModel->getPassword())) {
+        if (empty($this->loginRepository->getModel()->getPassword())) {
             $errors[] = [
                 "field" => "password",
                 "message" => "Password is required"
             ];
         }
-
-        $emailUser = $loginModel->getEmail();
-        $user = $this->findByEmail($emailUser);
+        
+        $user = $this->loginRepository->findByEmail();
 
         if (empty($user)) {
             $errors[] = [
@@ -41,7 +40,7 @@ class LoginService
             ];
         }
 
-        if ($user && $user->getPassword() != $loginModel->getPassword())
+        if ($user && $user->getPassword() != $this->loginRepository->getModel()->getPassword())
         {
             $errors[] = [
                 "field" => "password",
@@ -50,9 +49,5 @@ class LoginService
         }
 
         return $errors;
-    }
-    public function findByEmail(string $email): LoginModel
-    {
-        return $this->loginRepository->findByEmail($email);
     }
 }

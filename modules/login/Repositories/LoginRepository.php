@@ -10,7 +10,8 @@ interface LoginRepository
 {
     public function findAll(): array;
 
-    public function findByEmail(string $email): ?LoginModel;
+    public function findByEmail(): ?LoginModel;
 
+    public function getModel(): LoginModel;
 }
 
