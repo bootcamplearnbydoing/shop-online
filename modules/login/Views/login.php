@@ -3,6 +3,7 @@
     <div class="cards login-area">
         <section class="card">
             <h2 class="card__title">Bem-Vindo de Volta!</h2>
+            <?=get_flash_message()?>
             <?php if(isset($errors)): ?>
                 <ul>
                     <?php foreach($errors as $error): ?>
