@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace Pet\Store\Register\Repositories;
 
 use Pet\Store\Register\Models\RegisterModel;
+use Pet\Store\User\Models\UserModel;
 
 // Interface que define os métodos que devem ser implementados por um repositório de registros
 interface RegisterRepository
@@ -14,5 +15,9 @@ interface RegisterRepository
     public function findAll(): array;
     
     // Método que busca um registro pelo email
-    public function findByEmail(string $email): ?RegisterModel;
+    public function findByEmail(string $email): ?UserModel;
+
+    public function save(): string;
+
+    public function getModel(): RegisterModel;
 }

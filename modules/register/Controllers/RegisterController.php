@@ -6,11 +6,14 @@ declare(strict_types=1);
 namespace Pet\Store\Register\Controllers;
 
 // Define o namespace da classe
+
+use DateTime;
 use Exception;
+use Pet\Store\Address\Models\AddressModel;
 use Pet\Store\Register\Models\RegisterModel;
-use Pet\Store\Register\Repositories\RegisterInMemoryRepository;
 use Pet\Store\Register\Repositories\RegisterPgSqlRepository;
 use Pet\Store\Register\Services\RegisterService;
+use Pet\Store\User\Models\UserModel;
 
 // Importa as classes que serão utilizadas dentro desta classe
 class RegisterController
@@ -31,35 +34,52 @@ class RegisterController
     public function postRegister()
     {
         try {
-            // Cria uma instância da classe RegisterModel, que representa os dados submetidos pelo formulário
-            $userFormData = new RegisterModel(
+            $userModel = new UserModel(
                 filter_input(INPUT_POST, 'first_name'),
                 filter_input(INPUT_POST, 'last_name'),
                 filter_input(INPUT_POST, 'email'),
                 filter_input(INPUT_POST, 'password'),
-                filter_input(INPUT_POST, 'password_confirm'),
-                filter_input(INPUT_POST, 'birth_date'),
-                filter_input(INPUT_POST, 'address'),
-                filter_input(INPUT_POST, 'city'),
-                filter_input(INPUT_POST, 'postal_code'),
-                filter_input(INPUT_POST, 'billing_address'),
-                filter_input(INPUT_POST, 'newsletter')
+                new DateTime('1991-08-05'),
+                true
+            );
+            
+            $addressModel = new AddressModel(
+                'Rua dos marinheiros 72',
+                '8547-256',
+                'Lisboa'
             );
 
+            // Cria uma instância da classe RegisterModel, que representa os dados submetidos pelo formulário
+            $registerModel = new RegisterModel(
+                $userModel,
+                $addressModel,
+                filter_input(INPUT_POST, 'password_confirm')
+            );
+            
             // Cria uma instância do repositório RegisterInMemoryRepository, que armazena temporariamente os dados do formulário
             //$registerRepository = new RegisterInMemoryRepository();
-            $registerRepository = new RegisterPgSqlRepository($userFormData);
+            $registerRepository = new RegisterPgSqlRepository($registerModel);
             // Cria uma instância do serviço RegisterService, que contém as regras de negócio do registro
             $regiserService = new RegisterService($registerRepository);
             // Valida os dados submetidos pelo formulário, e retorna os erros encontrados
-            $errors = $regiserService->validate($userFormData);
+            $errors = $regiserService->validate();
             // Define a sessão 'form_data' com os dados submetidos pelo formulário
-            set_session('form_data', $userFormData);
-
+            
             // Se houverem erros na validação, lança uma exceção
             if (!empty($errors)) {
                 throw new Exception(json_encode($errors), 400);
             }
+
+            // regista o cliente na base de dados 
+            $userId = $regiserService->save();
+
+            $addressModel->setUserId($userId);
+            $addressModel->setCityId('eedd8325-a566-4cd1-8c91-41fd6fd5389c');
+
+            // Define a sessão 'form_errors' com a mensagem de erro
+            set_flash_message('Register created succesfully');
+            // Redireciona o usuário para a rota 'register'
+            url_redirect(['route' => 'login']);
 
         } catch (Exception $e) {
             // Define a sessão 'form_errors' com a mensagem de erro
