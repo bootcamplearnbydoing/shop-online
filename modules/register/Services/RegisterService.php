@@ -5,7 +5,6 @@ declare(strict_types=1);
 
 namespace Pet\Store\Register\Services;
 
-use Pet\Store\Register\Models\RegisterModel;
 use Pet\Store\Register\Repositories\RegisterRepository;
 
 // Classe que representa o serviço de registro de usuários
@@ -16,13 +15,15 @@ class RegisterService
     {}
 
     // Método que valida os dados do modelo de registro e retorna os erros encontrados
-    public function validate(RegisterModel $registerModel): array
+    public function validate(): array
     {
         // Inicializa a variável $errors
         $errors = [];
+        $registerModel = $this->registerRepository->getModel();
+        $userModel = $registerModel->getUser();
 
         // Verifica se o primeiro nome está vazio e adiciona o erro correspondente na variável $errors, caso esteja
-        if (empty($registerModel->getFirstName())) {
+        if (empty($userModel->getFirstName())) {
             $errors[] = [
                 'field' => 'first_name',
                 'message' => 'First name is required'
@@ -30,7 +31,7 @@ class RegisterService
         }
 
         // Verifica se o último nome está vazio e adiciona o erro correspondente na variável $errors, caso esteja
-        if (empty($registerModel->getLastName())) {
+        if (empty($userModel->getLastName())) {
             $errors[] = [
                 'field' => 'last_name',
                 'message' => 'Last name is required'
@@ -38,7 +39,7 @@ class RegisterService
         }
 
         // Verifica se o email está vazio e adiciona o erro correspondente na variável $errors, caso esteja
-        if (empty($registerModel->getEmail())) {
+        if (empty($userModel->getEmail())) {
             $errors[] = [
                 'field' => 'email',
                 'message' => 'Email is required'
@@ -46,7 +47,7 @@ class RegisterService
         }
 
         // Verifica se o email é válido e adiciona o erro correspondente na variável $errors, caso não seja
-        if (!filter_var($registerModel->getEmail(), FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($userModel->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $errors[] = [
                 'field' => 'email',
                 'message' => 'Email must be valid'
@@ -54,7 +55,7 @@ class RegisterService
         }
 
         // Verifica se a senha está vazia e adiciona o erro correspondente na variável $errors, caso esteja
-        if (empty($registerModel->getPassword())) {
+        if (empty($userModel->getPassword())) {
             $errors[] = [
                 'field' => 'password',
                 'message' => 'Password is required'
@@ -62,7 +63,7 @@ class RegisterService
         }
 
         // Verifica se a senha tem menos de 4 caracteres e adiciona o erro correspondente na variável $errors, caso tenha
-        if (strlen($registerModel->getPassword()) < 4) {
+        if (strlen($userModel->getPassword()) < 4) {
             $errors[] = [
                 'field' => 'password',
                 'message' => 'Password must be greater than 3 characters'
@@ -72,7 +73,7 @@ class RegisterService
         // Define uma expressão regular para validar a força da senha e adiciona o erro correspondente na variável $errors, caso a senha não atenda a expressão
         $pattern = '/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/';
         
-        if (!preg_match($pattern, $registerModel->getPassword())) {
+        if (!preg_match($pattern, $userModel->getPassword())) {
             $errors[] = [
                 'field' => 'password',
                 'message' => 'Password must contains letters, numbers and special characters'
@@ -80,7 +81,7 @@ class RegisterService
         }
 
         // Verifica se a senha e sua confirmação são iguais e adiciona o erro correspondente na variável $errors, caso não sejam iguais
-        if ($registerModel->getPassword() != $registerModel->getPasswordConfirm()) {
+        if ($userModel->getPassword() != $registerModel->getPasswordConfirm()) {
             $errors[] = [
                 'field' => 'password_confirm',
                 'message' => 'Passwords don\'t match'
@@ -88,7 +89,7 @@ class RegisterService
         }
     
          // Verifica se o email já foi registrado e adiciona o erro correspondente na variável $errors, caso já tenha sido
-        $emailUser = $registerModel->getEmail();
+        $emailUser = $userModel->getEmail();
         $user = $this->findByEmail($emailUser);
 
         if (!empty($user)) {
@@ -106,6 +107,11 @@ class RegisterService
     {
         // procura um user pelo email
         return $this->registerRepository->findByEmail($email);
+    }
+
+    public function save() : string
+    {
+        return $this->registerRepository->save();
     }
 }
 

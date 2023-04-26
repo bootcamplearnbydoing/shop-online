@@ -5,6 +5,8 @@
             "Pet\\Store\\": "src/",
             "Pet\\Store\\Register\\": "modules/register",
             "Pet\\Store\\Login\\": "modules/login",
+            "Pet\\Store\\Address\\": "modules/address",
+            "Pet\\Store\\User\\": "modules/user",
             "Pet\\Store\\Shared\\": "shared"
         }
     },

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Pet\Store\Login\Services;
 
-use Pet\Store\Login\Models\LoginModel;
 use Pet\Store\Login\Repositories\LoginRepository;
 
 class LoginService
@@ -16,15 +15,16 @@ class LoginService
     public function validate(): array
     {
         $errors = [];
+        $loginModel = $this->loginRepository->getModel();
 
-        if (empty($this->loginRepository->getModel()->getEmail())) {
+        if (empty($loginModel->getEmail())) {
             $errors[] = [
                 "field" => "email",
                 "message" => "Email adress is required"
             ];
         }
 
-        if (empty($this->loginRepository->getModel()->getPassword())) {
+        if (empty($loginModel->getPassword())) {
             $errors[] = [
                 "field" => "password",
                 "message" => "Password is required"
@@ -40,7 +40,7 @@ class LoginService
             ];
         }
 
-        if ($user && $user->getPassword() != $this->loginRepository->getModel()->getPassword())
+        if ($user && $user->getPassword() != $loginModel->getPassword())
         {
             $errors[] = [
                 "field" => "password",
