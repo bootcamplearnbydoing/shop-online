@@ -41,7 +41,7 @@ class LoginService
             ];
         }
 
-        if ($user && $user->getPassword() != $password())
+        if ($user && $user->getPassword() != $password)
         {
             $errors[] = [
                 "field" => "password",

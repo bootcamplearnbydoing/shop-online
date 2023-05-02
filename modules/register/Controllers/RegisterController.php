@@ -28,6 +28,7 @@ class RegisterController
 
         // Exibe a view do formulário, passando os possíveis erros em $data
         view('register', $data);
+        unset_session('form_errors');
     }
 
     // Método responsável por receber e validar os dados do formulário de registro
@@ -44,9 +45,9 @@ class RegisterController
             );
             
             $addressModel = new AddressModel(
-                'Rua dos marinheiros 72',
-                '8547-256',
-                'Lisboa'
+                filter_input(INPUT_POST, 'address_content'),
+                filter_input(INPUT_POST, 'address_postal_code'),
+                filter_input(INPUT_POST, 'address_city_id'),
             );
 
             // Cria uma instância da classe RegisterModel, que representa os dados submetidos pelo formulário
@@ -59,6 +60,7 @@ class RegisterController
             // Cria uma instância do repositório RegisterInMemoryRepository, que armazena temporariamente os dados do formulário
             //$registerRepository = new RegisterInMemoryRepository();
             $registerRepository = new RegisterPgSqlRepository($registerModel);
+            
             // Cria uma instância do serviço RegisterService, que contém as regras de negócio do registro
             $regiserService = new RegisterService($registerRepository);
             // Valida os dados submetidos pelo formulário, e retorna os erros encontrados
@@ -67,7 +69,8 @@ class RegisterController
             
             // Se houverem erros na validação, lança uma exceção
             if (!empty($errors)) {
-                throw new Exception(json_encode($errors), 400);
+                set_session('form_errors', $errors);
+                throw new Exception('Something went wrong', 400);
             }
 
             // regista o cliente na base de dados 
@@ -82,8 +85,7 @@ class RegisterController
             url_redirect(['route' => 'login']);
 
         } catch (Exception $e) {
-            // Define a sessão 'form_errors' com a mensagem de erro
-            set_session('form_errors', $e->getMessage());
+            // $e->getMessage() retorna a mensagem de erro lançada no método validate() da classe RegisterService
             // Redireciona o usuário para a rota 'register'
             url_redirect(['route' => 'register']);
         }

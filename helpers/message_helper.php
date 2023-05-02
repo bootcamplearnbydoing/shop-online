@@ -4,16 +4,15 @@
 function form_errors() {
     // Obtém os erros da sessão 'form_errors'
     $errors = get_session('form_errors');
-    // Decodifica o JSON retornado, ou retorna um array vazio caso não hajam erros
-    $errors = json_decode($errors ?? '[]', true);
-    // Remove a sessão 'form_errors'
-    unset_session('form_errors');
     // Retorna o array de erros
-    return $errors;
+    return $errors ?? [];
 }
 
 // Função responsável por retornar o erro de um campo específico
-function form_error($errors, $name) {
+function form_error($name) {
+    // Obtém os erros do formulário
+    $errors = form_errors();
+    
     // Inicializa a variável $field
     $field = null;
     
