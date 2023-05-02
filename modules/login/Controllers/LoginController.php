@@ -39,6 +39,11 @@ class LoginController
             if (!empty($errors)) {
                 throw new Exception(json_encode($errors), 400);
             }
+
+            $encryptedPassword = $loginService->encryptedPassword();
+            var_dump($encryptedPassword);
+            die();
+            
         } catch (Exception $e) {
             set_session("form_errors", $e->getMessage());
             url_redirect(['route' => 'login']);

@@ -32,6 +32,7 @@ class LoginService
         }
         
         $user = $this->loginRepository->findByEmail();
+        $password = $this->encryptedPassword();
 
         if (empty($user)) {
             $errors[] = [
@@ -40,7 +41,7 @@ class LoginService
             ];
         }
 
-        if ($user && $user->getPassword() != $loginModel->getPassword())
+        if ($user && $user->getPassword() != $password())
         {
             $errors[] = [
                 "field" => "password",
@@ -50,4 +51,11 @@ class LoginService
 
         return $errors;
     }
+
+    public function encryptedPassword(): string
+    {    
+        $password = $this->loginRepository->getModel()->getPassword();
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
 }
