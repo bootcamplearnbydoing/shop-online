@@ -34,18 +34,15 @@ class LoginController
 
             $errors = $loginService->validate();
 
-            set_session("form_data", $loginModel);
+            set_session("form_data", $_POST);
 
             if (!empty($errors)) {
-                throw new Exception(json_encode($errors), 400);
+                set_session('form_errors', $errors);
+                throw new Exception('Something went wrong', 400);
             }
-
-            $encryptedPassword = $loginService->encryptedPassword();
-            var_dump($encryptedPassword);
-            die();
             
         } catch (Exception $e) {
-            set_session("form_errors", $e->getMessage());
+            //set_session("form_errors", $e->getMessage());
             url_redirect(['route' => 'login']);
         }
     }

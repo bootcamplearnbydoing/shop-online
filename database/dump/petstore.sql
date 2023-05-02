@@ -4,10 +4,39 @@ INSERT INTO public.users (id, role_id, first_name, last_name, email, "password",
 INSERT INTO public.roles (id, "name", created_at, updated_at) VALUES('b8499c94-df6c-4550-98e7-dc0127eb3287'::uuid, 'Administrator', '2023-04-19 22:27:44.391', '2023-04-19 22:27:44.391');
 INSERT INTO public.roles (id, "name", created_at, updated_at) VALUES('1941253a-4315-49f8-a929-1562dc9cb45f'::uuid, 'Customer', '2023-04-19 22:27:44.393', '2023-04-19 22:27:44.393');
 
+-- countries
+INSERT INTO public.countries (id, "name", created_at, updated_at) VALUES(gen_random_uuid(), '', now(), now());
+
 -- states
-INSERT INTO public.states (id, "name", created_at, updated_at) VALUES('bc71eef2-5716-4416-989d-07c446b466e9'::uuid, 'LIsboa', '2023-04-26 22:23:40.997', '2023-04-26 22:23:40.997');
-INSERT INTO public.states (id, "name", created_at, updated_at) VALUES('4d54a831-2288-4b7e-8c35-3ad7ddfe8548'::uuid, 'Faro', '2023-04-26 22:23:41.001', '2023-04-26 22:23:41.001');
-INSERT INTO public.states (id, "name", created_at, updated_at) VALUES('74fd6d70-8b1d-430e-84cf-d02584dc7657'::uuid, 'Setúbal', '2023-04-26 22:23:41.003', '2023-04-26 22:23:41.003');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('58ec5709-6a1f-40e3-b6ff-ee9a4baef0f3'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Aveiro', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('4e3ebb58-1eb2-49c8-903d-f2807381cb3f'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Beja', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('7f4126d9-6d03-40aa-b1c2-36771df1038c'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Braga', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('830208e5-d8df-433b-b35e-0a1e62c57ed5'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Bragança', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('46d092e5-b64d-45b9-8f47-f636d1c763f3'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Castelo Branco', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('fcbd3897-b97b-45f1-919b-9c2c26c51ab9'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Coimbra', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('759379ea-0690-4b53-8f20-7e47641433c6'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Évora', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('ad201e13-1b8e-4274-a5d8-6937067c4f37'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Faro', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('948364e3-f9a8-491f-a0aa-3271bffba9ff'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Guarda', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('381379c1-03eb-47f3-a8ce-04fe6b6cff60'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Leiria', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('318a3bb9-b1b0-4844-b627-e72483fcef37'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Lisboa', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('43d4ed58-f36e-42d1-9fdd-2c940d799a84'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Portalegre', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('249fbbfc-ecdc-46a3-9dcc-f7055da2d98f'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Porto', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('e2e21ff8-a75c-4ea8-bc98-4b72181d439f'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Santarém', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('916fb16e-ad0d-4017-8405-e40f9fc8488e'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Setúbal', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('ba11a60c-206a-4a3c-ab06-821d8252b697'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Viana do Castelo', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('78d0a5c3-d06c-42d2-b17c-360ff70710c2'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Vila Real', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('735eb8b5-c29a-4f97-b1c8-9d5b8c81cca7'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Viseu', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('4d85ef9c-5571-44a3-b3c9-0342df11bd23'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha da Madeira', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('dfaa1033-d2e1-493e-9309-ae38914a5461'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha de Porto Santo', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('4cbd0c77-0faf-40f4-b24f-48817e251649'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha de Santa Maria', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('7d16f195-7a3d-4cf5-91ce-7aaec4bed943'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha de São Miguel', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('a173283f-37fb-4408-94d0-93d19708ff05'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha Terceira', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('f2c8a478-f6fe-4e7f-92fb-ea4aaa76c17f'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha da Graciosa', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('c026ac95-4887-4a79-921b-93aad651955c'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha de São Jorge', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('abc1b96c-0f61-426a-a566-366c8d1622ff'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha do Pico', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('d820df88-3219-49ea-8789-a84d93e93c74'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha do Faial', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('7772b609-329d-4dd8-939c-0d09a809558e'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha das Flores', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
+INSERT INTO public.states (id, country_id, "name", created_at, updated_at) VALUES('bdd25c25-50a5-4637-a7a9-fb81f564726c'::uuid, '117b55af-9422-4c15-b975-1ad92b090010'::uuid, 'Ilha do Corvo', '2023-05-02 21:36:02.371', '2023-05-02 21:36:02.371');
 
 -- cities
-INSERT INTO public.cities (id, state_id, "name", created_at, updated_at) VALUES('eedd8325-a566-4cd1-8c91-41fd6fd5389c'::uuid, 'bc71eef2-5716-4416-989d-07c446b466e9'::uuid, 'Odivelas', '2023-04-26 22:24:19.481', '2023-04-26 22:24:19.481');
+INSERT INTO public.cities (id, state_id, "name", created_at, updated_at) VALUES('eedd8325-a566-4cd1-8c91-41fd6fd5389c'::uuid, '318a3bb9-b1b0-4844-b627-e72483fcef37'::uuid, 'Odivelas', '2023-04-26 22:24:19.481', '2023-04-26 22:24:19.481');
